@@ -35,4 +35,4 @@ boolean kiedy_zakończyć_skanowanie(List \<ScanResult\> results)
 Ta metoda określa kiedy zakończyć nasłuchiwanie skanów z tym że nawet z wartością false wykona się przynajmniej raz.
   
 Klasa odczytywanie_pozycji implementuje Akcje_na_Wifi i wykonuje szukania 
-//Ta klasa wymaga dalszej implementacji pod uczenie maszynowe 
+ // Ta klasa wymaga dalszej implementacji pod uczenie maszynowe 
