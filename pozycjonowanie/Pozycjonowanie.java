@@ -22,9 +22,12 @@ public class Pozycjonowanie {
             WIFI.Akcje_Wifi(akcjaskanu);
         }
 
-        public void zapisz_skan_do_Bazy(wspułżedne XY)
+        public void zapisz_skan_do_Bazy(float x,float y)
         {
-            zapisywanie_wifi_do_Bazy sesja= new zapisywanie_wifi_do_Bazy(baza,XY);
+            wspułżedne xy=new wspułżedne();
+            xy.X=x;
+            xy.Y=y;
+            zapisywanie_wifi_do_Bazy sesja= new zapisywanie_wifi_do_Bazy(baza,xy);
             WIFI.Akcje_Wifi(sesja);
         }
         public void odczytaj_pozycje(TextView ekran)
@@ -43,7 +46,7 @@ public class Pozycjonowanie {
             typ_danych_bazy_skan[] skany = baza.odczytaj_dane();
             String wypisz = new String("");
             if(skany!= null) {
-                for (int i = 0; i < skany.length; i++) {
+                for (int i = skany.length-1; i >=0 ; i--) {
                     wypisz += "pozycja :" + String.valueOf(skany[i].XY.Y) + " " + String.valueOf(skany[i].XY.X) + "\n";
                     wypisz += "liczba zarejestrowanych punktów" + String.valueOf(skany[i].AP.length) + "\n";
                 }

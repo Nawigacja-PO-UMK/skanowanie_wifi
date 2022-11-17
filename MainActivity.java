@@ -66,10 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void zapiszywanie_pozycji() {
 
-        wspułżedne xy=new wspułżedne();
-        xy.X=Float.valueOf(String.valueOf(X.getText()));
-        xy.Y=Float.valueOf(String.valueOf(Y.getText()));
-        pozycja.zapisz_skan_do_Bazy(xy);
+        pozycja.zapisz_skan_do_Bazy(Float.valueOf(String.valueOf(X.getText())),Float.valueOf(String.valueOf(Y.getText())));
     }
 
 

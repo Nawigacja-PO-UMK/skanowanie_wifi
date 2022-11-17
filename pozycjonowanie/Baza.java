@@ -135,10 +135,6 @@ public class Baza {
         }
         return null;
     }
-
-
-
-
     public void kasuj()
     {
         SharedPreferences plik = kontekst.getSharedPreferences(plikBazy, Context.MODE_PRIVATE);
