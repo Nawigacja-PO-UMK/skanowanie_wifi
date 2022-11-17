@@ -8,6 +8,7 @@ Klasa Pozycjonowanie jest główną klasą pozycjonującą za pomoca wifi i zapi
     \<uses-permission android:name="android.permission.MANAGE_DOCUMENTS"
         tools:ignore="ProtectedPermissions"\>\</uses-permission\>
 "
+
 Klasa pozycjonująca zawiera metody:
 
 void Wświetl_czujniki(TextView wifi)
