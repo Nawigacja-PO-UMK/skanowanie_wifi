@@ -1,6 +1,6 @@
 # skanowanie_wifi
 
-Klasa Pozycjonowanie jest główną klasą pozycjonującą za pomoca wifi i zapisującą pozycje ze skanami.By utworzyć instacje tej klasy potrzeba klasy Context którą uzyskujemy dzięki getApplicationContext()(ważne! ta medoda musi byś wykonywana w klasię dziedziczącej po AppCompatActivity). Klasa ta też potrzebuje odpowiednich uprawnień w pliku AndroidManifest.xml:
+Klasa Pozycjonowanie jest główną klasą pozycjonującą za pomoca wifi i zapisującą pozycje ze skanami.By utworzyć instacje tej klasy potrzeba klasy Context którą uzyskujemy dzięki getApplicationContext()(ważne! ta metoda musi byś wykonywana w klasię dziedziczącej po AppCompatActivity). Klasa ta też potrzebuje odpowiednich uprawnień w pliku AndroidManifest.xml:
 
 "\<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"\>\</uses-permission\>
     \<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"\>\</uses-permission\>
