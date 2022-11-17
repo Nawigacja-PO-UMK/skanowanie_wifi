@@ -28,10 +28,10 @@ Pozwala na wykonanie dynamicznych operacji na skanach za pomocą interfejsu
 
 interfajes Akcje_na_Wifi implementuje dwie metody
 
-void Wykonywanie_funkcji_wifi("List /<ScanResult/> rezultat_skanu")
+void Wykonywanie_funkcji_wifi("List \<ScanResult\> rezultat_skanu")
 ta metoda jest wykonywana kiedy skanowanie wifi się zakońcyło i podaje rezultat skanu
 
-boolean kiedy_zakończyć_skanowanie("List /<ScanResult/> results")
+boolean kiedy_zakończyć_skanowanie("List \<ScanResult\> results")
 Ta metoda określa kiedy zakończyć nasłuchiwanie skanów z tym że nawet z wartością false wykona się przynajmniej raz.
   
 Klasa odczytywanie_pozycji implementuje Akcje_na_Wifi i wykonuje szukania 
