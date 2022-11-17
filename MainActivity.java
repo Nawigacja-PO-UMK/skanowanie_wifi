@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         //proszenie o potrzebne uprawnienia
         String[] listaUprawnia = new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_WIFI_STATE,
                 Manifest.permission.CHANGE_WIFI_STATE,Manifest.permission.MANAGE_DOCUMENTS};
-        ActivityCompat.requestPermissions(this, listaUprawnia, 0);
+        //ActivityCompat.requestPermissions(this, listaUprawnia, 0);
         pozycja = new Pozycjonowanie(getApplicationContext(),Baza);
     }
 

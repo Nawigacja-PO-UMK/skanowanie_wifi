@@ -34,6 +34,7 @@ public class Wifi_Manager  extends AppCompatActivity {
                    W.Wykonywanie_funkcji_wifi(skan);
                    if(W.kiedy_zakończyć_skanowanie(skan))
                 kontekst.unregisterReceiver(this);
+                   else Wifi.startScan();
             }
         };
         IntentFilter intentFilter = new IntentFilter();
