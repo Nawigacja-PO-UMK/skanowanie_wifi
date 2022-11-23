@@ -11,6 +11,8 @@ Klasa Pozycjonowanie jest główną klasą pozycjonującą za pomoca wifi i zapi
 oraz wywołania prośby o uprawnienia związanej z uprawnieniami do użydkownika :
 ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 0);
 
+klasa pozycjanująca korzysta z biblioteki volley:1.2.1 znajduje się w repozytoru google wieć wystarczy dodać andonacje implementation 'com.android.volley:volley:1.2.1' do pliku bulid.gradle(:app) 
+
 Klasa pozycjonująca zawiera metody:
 
 void wyślij_skany_do_bazy()
