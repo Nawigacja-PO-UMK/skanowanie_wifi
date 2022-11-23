@@ -8,6 +8,7 @@ Klasa Pozycjonowanie jest główną klasą pozycjonującą za pomoca wifi i zapi
     \<uses-permission android:name="android.permission.MANAGE_DOCUMENTS"
         tools:ignore="ProtectedPermissions"\>\</uses-permission\>
 "
+
 oraz wywołania prośby o uprawnienia związanej z uprawnieniami do użydkownika :
 ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 0);
 
