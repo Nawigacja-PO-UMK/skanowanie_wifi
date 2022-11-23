@@ -9,7 +9,7 @@ Klasa Pozycjonowanie jest główną klasą pozycjonującą za pomoca wifi i zapi
         tools:ignore="ProtectedPermissions"\>\</uses-permission\>
 "
 
-oraz wywołania prośby o uprawnienia związanej z uprawnieniami do użydkownika :
+oraz wywołania prośby o uprawnienia do użydkownika :
 ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 0);
 
 klasa pozycjanująca korzysta z biblioteki volley:1.2.1 znajduje się w repozytoru google wieć wystarczy dodać andonacje implementation 'com.android.volley:volley:1.2.1' do pliku bulid.gradle(:app) 
