@@ -1,18 +1,20 @@
 package com.example.skanowaniewifi;
 
+import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.net.wifi.WifiManager;
 import android.content.IntentFilter;
 import android.net.wifi.ScanResult;
+import android.net.wifi.WifiManager;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import java.util.List;
 
-public class Wifi_Manager  extends AppCompatActivity {
+public class Wifi_Manager extends AppCompatActivity {
 
     private WifiManager Wifi;
     Context kontekst;
@@ -23,7 +25,6 @@ public class Wifi_Manager  extends AppCompatActivity {
         this.kontekst=kontekst;
         if (!Wifi.isWifiEnabled())
             Toast.makeText(kontekst,"Prosze włączyć Wifi",Toast.LENGTH_LONG).show();
-
     }
     public void Akcje_Wifi(Akcje_na_Wifi W)
     {

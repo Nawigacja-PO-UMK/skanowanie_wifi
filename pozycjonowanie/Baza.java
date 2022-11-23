@@ -1,31 +1,22 @@
 package com.example.skanowaniewifi;
 
-import static java.lang.Math.abs;
-
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Point;
 import android.net.wifi.ScanResult;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.RandomAccessFile;
-import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,7 +26,7 @@ public class Baza {
     private String plikBazy;
     private Context kontekst;
     private JSONArray Bazadanych;
-
+    private String url="https://nawigacjapoumk.000webhostapp.com";
     public Baza(String plikBazy,Context kontekst)  {
         this.plikBazy=plikBazy;
         this.kontekst=kontekst;
@@ -135,6 +126,33 @@ public class Baza {
         }
         return null;
     }
+    void wysyłanie_na_Serwer()
+    {
+        String baza=odczytaj_plik();
+        StringRequest WysyłaneDane= new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(kontekst,response,Toast.LENGTH_LONG).show();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(kontekst,error.toString(),Toast.LENGTH_LONG).show();
+            }
+        }){
+            @Override
+            protected Map<String,String> getParams()
+            {
+                Map<String,String> wystłane= new HashMap<String,String>();
+                wystłane.put("dane",baza);
+                return wystłane;
+            }
+        };
+        RequestQueue gniazdo= Volley.newRequestQueue(kontekst);
+        gniazdo.add(WysyłaneDane);
+    }
+
     public void kasuj()
     {
         SharedPreferences plik = kontekst.getSharedPreferences(plikBazy, Context.MODE_PRIVATE);

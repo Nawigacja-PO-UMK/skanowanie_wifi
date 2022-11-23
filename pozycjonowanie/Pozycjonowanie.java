@@ -59,5 +59,10 @@ public class Pozycjonowanie {
             baza.kasuj();
         }
 
+        public void wyślij_skany_do_bazy()
+        {
+            baza.wysyłanie_na_Serwer();
+        }
+
 }
 

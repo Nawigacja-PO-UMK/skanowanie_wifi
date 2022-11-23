@@ -1,8 +1,6 @@
 package com.example.skanowaniewifi;
 
-import android.graphics.Point;
 import android.net.wifi.ScanResult;
-import android.widget.TextView;
 
 import java.util.List;
 

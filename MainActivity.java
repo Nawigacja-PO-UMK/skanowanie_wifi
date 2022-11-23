@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Point;
@@ -15,6 +16,8 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView wifi,plik,magnetomet,akcelenometr;
@@ -23,21 +26,19 @@ public class MainActivity extends AppCompatActivity {
     EditText Y;
     Pozycjonowanie pozycja;
     final String Baza="daneBazy.jos";
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       //deklaracja klas widoku
-         wifi = (TextView) findViewById(R.id.WIFI);
-         przełocznik=(Switch) findViewById(R.id.switch3);
+        //deklaracja klas widoku
+        wifi = (TextView) findViewById(R.id.WIFI);
+        przełocznik=(Switch) findViewById(R.id.switch3);
         X=(EditText) findViewById(R.id.editTextNumberSigned);
         Y=(EditText) findViewById(R.id.editTextNumberSigned3);
         plik= (TextView) findViewById(R.id.plik);
 
-        //proszenie o potrzebne uprawnienia
-        String[] listaUprawnia = new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_WIFI_STATE,
-                Manifest.permission.CHANGE_WIFI_STATE,Manifest.permission.MANAGE_DOCUMENTS};
-        //ActivityCompat.requestPermissions(this, listaUprawnia, 0);
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 0);
         pozycja = new Pozycjonowanie(getApplicationContext(),Baza);
     }
 
@@ -47,15 +48,15 @@ public class MainActivity extends AppCompatActivity {
         plik.setText(pozycja.wypisz_zawartość_bazy());
 
     }
+
+
     public void Operacje_na_pozycji(View view)
     {
         if(przełocznik.isChecked()) {
             zapiszywanie_pozycji();
         }
-            else
-
+        else
             odczytywanie_pozycji();
-
     }
 
     private void odczytywanie_pozycji()
@@ -65,15 +66,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void zapiszywanie_pozycji() {
-
         pozycja.zapisz_skan_do_Bazy(Float.valueOf(String.valueOf(X.getText())),Float.valueOf(String.valueOf(Y.getText())));
     }
 
 
-        public void odczytwanie_plik(View view)
-        {
-            plik.setText(pozycja.wypisz_zawartość_bazy());
-        }
+    public void odczytwanie_plik(View view)
+    {
+        plik.setText(pozycja.wypisz_zawartość_bazy());
+    }
 
 
+    public void wyslij_do_bazy(View view)
+    {
+        pozycja.wyślij_skany_do_bazy();
+    }
 }
